@@ -1,0 +1,13 @@
+<?php
+include '../fonctions.php';
+require '../connexiondb.php';
+
+$idVehicule = $_GET['id'] ?? null;
+
+if (!is_numeric($idVehicule)) {
+    dd("Ce vehicule n'existe pas !!!");
+}
+
+$car = getVehicule($pdo, $idVehicule);
+
+include PATH_PROJECT . "/views/vehicule/vehicule-view.php";
