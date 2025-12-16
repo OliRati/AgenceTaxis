@@ -11,5 +11,6 @@ require 'connexiondb.php';
 </head>
 <body>
     <a href="./vehicule/list-vehicule.php">Liste de vehicules</a>
+    <a href="./vehicule/add-vehicule.php">Ajouter un vehicules</a>
 </body>
 </html>

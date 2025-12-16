@@ -45,4 +45,9 @@ function supprimerVehicule($pdo, $id)
     return $suppResult;
 }
 
+function nettoyer($dataParam) {
+    $data = trim($dataParam);
+    $date = htmlspecialchars($data, ENT_QUOTES, 'UTF-8');
+    return $data;
+}
 ?>

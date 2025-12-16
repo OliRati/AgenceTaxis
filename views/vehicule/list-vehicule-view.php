@@ -17,6 +17,7 @@
                     <th>Marque</th>
                     <th>Modele</th>
                     <th>Couleur</th>
+                    <th>Immatriculation</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -27,15 +28,18 @@
                         <td><?= $car['marque'] ?></td>
                         <td><?= $car['modele'] ?></td>
                         <td><?= $car['couleur'] ?></td>
+                        <td><?= $car['immatriculation'] ?></td>
                         <td><a
-                                href="<?= WEB_ROOT . "/vehicule/edit-vehicule.php" . "?id=" . $car['id_vehicule'] ?>" role='button'>Editer</a>
+                                href="<?= WEB_ROOT . "/vehicule/edit-vehicule.php" . "?id=" . $car['id_vehicule'] ?>" role="button">Editer</a>
                             <a
-                                href="<?= WEB_ROOT . "/vehicule/del-vehicule.php" . "?id=" . $car['id_vehicule'] ?>"  role='button' onclick="return confirm('Etes vous certain de vouloir supprimer ce vehicule ?');">Supprimer</a>
+                                href="<?= WEB_ROOT . "/vehicule/del-vehicule.php" . "?id=" . $car['id_vehicule'] ?>"  role="button" onclick="return confirm('Etes vous certain de vouloir supprimer ce vehicule ?');">Supprimer</a>
                         </td>
                     </tr>
                 <?php endforeach ?>
             </tbody>
         </table>
+
+            <a href="<?= WEB_ROOT . "/vehicule/add-vehicule.php" ?>" role="button">Ajouter un vehicules</a>
     </main>
 </body>
 

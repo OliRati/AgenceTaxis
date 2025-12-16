@@ -18,27 +18,27 @@
     </style>
     <main>
         <article>
-            <h1>Editer un vehicule</h1>
+            <h1>Ajouter un vehicule</h1>
             <form action="" method="POST">
                 <div class="flex">
                     <label for="marque">Marque</label>
-                    <input type="text" id="marque" name="marque" value="<?= $car['marque'] ?>" placeholder="Marque">
+                    <input type="text" id="marque" name="marque" required>
                 </div>
                 <div class="flex">
                     <label for="modele">Modele</label>
-                    <input type="text" id="modele" name="modele" value="<?= $car['modele'] ?>" placeholder="Marque">
+                    <input type="text" id="modele" name="modele" required>
                 </div>
                 <div class="flex">
                     <label for="couleur">Couleur</label>
-                    <input type="text" id="couleur" name="couleur" value="<?= $car['couleur'] ?>" placeholder="Marque">
+                    <input type="text" id="couleur" name="couleur" required>
                 </div>
                 <div class="flex">
                     <label for="immatriculation">Immatriculation</label>
-                    <input type="text" id="immatriculation" name="immatriculation" value="<?= $car['immatriculation'] ?>" placeholder="Marque">
+                    <input type="text" id="immatriculation" name="immatriculation" required>
                 </div>
                 <div class="flex">
-                    <input type="button" name="submit" value="Modifier">
-                    <input type="button" name="undo" value="Annuler">
+                    <button type="submit" name="envoyer">Envoyer</button>
+                    <button type="submit" name="submit">Annuler</button>
                 </div>
             </form>
         </article>
