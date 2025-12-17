@@ -10,9 +10,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['envoyer'])) {
     $couleur = nettoyer($_POST['couleur']);
     $immatriculation = nettoyer($_POST['immatriculation']);
 
-    addVehicule($pdo, $marque, $modele, $couleur, $immatriculation );
+    $state = ajoutVehicule($pdo, $marque, $modele, $couleur, $immatriculation );
 
-    header("Location: " . WEB_ROOT . "/vehicule/list-vehicule.php");
+    if ($state) {
+        header("Location: " . WEB_ROOT . "/vehicule/list-vehicule.php");
+    }
 }
 
 include PATH_PROJECT . "/views/vehicule/add-vehicule-view.php";

@@ -22,27 +22,19 @@
 
     <main>
         <article>
-            <h1>Ajouter un vehicule</h1>
-            <form action="" method="POST">
+            <h1>Editer un conducteur</h1>
+            <form action="?id=<?= $idConducteur ?>" method="POST">
                 <div class="flex">
-                    <label for="marque">Marque</label>
-                    <input type="text" id="marque" name="marque" required>
+                    <label for="nom">Nom</label>
+                    <input type="text" id="nom" name="nom" value="<?= $driver['nom'] ?>">
                 </div>
                 <div class="flex">
-                    <label for="modele">Modele</label>
-                    <input type="text" id="modele" name="modele" required>
-                </div>
-                <div class="flex">
-                    <label for="couleur">Couleur</label>
-                    <input type="text" id="couleur" name="couleur" required>
-                </div>
-                <div class="flex">
-                    <label for="immatriculation">Immatriculation</label>
-                    <input type="text" id="immatriculation" name="immatriculation" required>
+                    <label for="prenom">Prénom</label>
+                    <input type="text" id="prenom" name="prenom" value="<?= $driver['prenom'] ?>">
                 </div>
                 <div class="flex">
                     <button type="submit" name="envoyer">Envoyer</button>
-                    <button type="submit" name="submit">Annuler</button>
+                    <button type="submit" name="annuler">Annuler</button>
                 </div>
             </form>
         </article>

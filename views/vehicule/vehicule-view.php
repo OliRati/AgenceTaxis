@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vehicules</title>
     <link rel="stylesheet" href="<?= WEB_ROOT . "/assets/css/pico.min.css" ?>">
+    <link rel="stylesheet" href="<?= WEB_ROOT . "/assets/css/style.css" ?>">
 </head>
 
 <body>
@@ -16,6 +17,9 @@
             gap: 1rem;
         }
     </style>
+
+    <?php include PATH_PROJECT . "/views/nav/nav.php"; ?>
+
     <main>
         <article>
             <h1>Editer un vehicule</h1>
@@ -34,7 +38,8 @@
                 </div>
                 <div class="flex">
                     <label for="immatriculation">Immatriculation</label>
-                    <input type="text" id="immatriculation" name="immatriculation" value="<?= $car['immatriculation'] ?>" placeholder="Marque">
+                    <input type="text" id="immatriculation" name="immatriculation"
+                        value="<?= $car['immatriculation'] ?>" placeholder="Marque">
                 </div>
                 <div class="flex">
                     <button type="submit" name="envoyer">Envoyer</button>

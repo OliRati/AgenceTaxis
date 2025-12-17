@@ -46,7 +46,28 @@ function getVehicule($pdo, $id)
     return $vehicule;
 }
 
-function addVehicule($pdo, $marque, $modele, $couleur, $immatriculation)
+function getConducteur($pdo, $id)
+{
+    $sql = "SELECT * FROM conducteur WHERE id_conducteur = :id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+
+    $stmt->execute();
+    $conducteur = $stmt->fetch();
+
+    return $conducteur;
+}
+
+function getLastInsertId($pdo)
+{
+    $sql = "SELECT LAST_INSERT_ID()";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
+    $last_insert_id = $stmt->fetch();
+    return $last_insert_id;
+}
+
+function ajoutVehicule($pdo, $marque, $modele, $couleur, $immatriculation)
 {
     $sql = "INSERT INTO vehicule (marque,modele,couleur,immatriculation) VALUES (:marque, :modele, :couleur, :immatriculation)";
     $stm = $pdo->prepare($sql);
@@ -56,6 +77,22 @@ function addVehicule($pdo, $marque, $modele, $couleur, $immatriculation)
         ':couleur' => $couleur,
         ':immatriculation' => $immatriculation
     ]);
+
+    $lastid = getLastInsertId($pdo);
+
+    return $state;
+}
+
+function ajoutConducteur($pdo, $nom, $prenom)
+{
+    $sql = "INSERT INTO conducteur (nom,prenom) VALUES (:nom, :prenom)";
+    $stm = $pdo->prepare($sql);
+    $state = $stm->execute([
+        ':nom' => $nom,
+        ':prenom' => $prenom
+    ]);
+
+    $lastid = getLastInsertId($pdo);
 
     return $state;
 }
@@ -75,9 +112,31 @@ function updateVehicule($pdo, $idVehicule, $marque, $modele, $couleur, $immatric
     return $result;
 }
 
+function updateConducteur($pdo, $idConducteur, $nom, $prenom)
+{
+    $sql = "UPDATE conducteur SET nom = :nom, prenom = :prenom WHERE id_conducteur = :id_conducteur ;";
+    $stm = $pdo->prepare($sql);
+
+    $result = $stm->execute([
+        ':id_conducteur' => $idConducteur,
+        ':nom' => $nom,
+        ':prenom' => $prenom
+    ]);
+
+    return $result;
+}
+
 function supprimerVehicule($pdo, $id)
 {
     $stm = $pdo->prepare("DELETE FROM vehicule where id_vehicule = :id");
+    $stm->bindParam(':id', $id, PDO::PARAM_INT);
+    $suppResult = $stm->execute();
+    return $suppResult;
+}
+
+function supprimerConducteur($pdo, $id)
+{
+    $stm = $pdo->prepare("DELETE FROM conducteur where id_conducteur = :id");
     $stm->bindParam(':id', $id, PDO::PARAM_INT);
     $suppResult = $stm->execute();
     return $suppResult;
