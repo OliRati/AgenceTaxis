@@ -10,7 +10,6 @@ require 'connexiondb.php';
     <title>Document</title>
 </head>
 <body>
-    <a href="./vehicule/list-vehicule.php">Liste de vehicules</a>
-    <a href="./vehicule/add-vehicule.php">Ajouter un vehicules</a>
+    <a href="./vehicule/list-vehicule.php">Liste des vehicules</a>
 </body>
 </html>

@@ -19,7 +19,7 @@
     <main>
         <article>
             <h1>Editer un vehicule</h1>
-            <form action="" method="POST">
+            <form action="?id=<?= $idVehicule ?>" method="POST">
                 <div class="flex">
                     <label for="marque">Marque</label>
                     <input type="text" id="marque" name="marque" value="<?= $car['marque'] ?>" placeholder="Marque">
@@ -37,8 +37,8 @@
                     <input type="text" id="immatriculation" name="immatriculation" value="<?= $car['immatriculation'] ?>" placeholder="Marque">
                 </div>
                 <div class="flex">
-                    <input type="button" name="submit" value="Modifier">
-                    <input type="button" name="undo" value="Annuler">
+                    <button type="submit" name="envoyer">Envoyer</button>
+                    <button type="submit" name="annuler">Annuler</button>
                 </div>
             </form>
         </article>
