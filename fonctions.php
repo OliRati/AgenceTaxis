@@ -1,6 +1,9 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors' , '1');
+
 define("PATH_PROJECT", $_SERVER['DOCUMENT_ROOT'] . "\devweb-php\AgenceTaxis");
-define("WEB_ROOT", "\devweb-php\AgenceTaxis");
+define("WEB_ROOT", "/devweb-php/AgenceTaxis");
 
 function dg($data)
 {
@@ -34,6 +37,17 @@ function listerConducteurs($pdo)
 
     return $conducteurs;
 }
+
+function listerAssociations($pdo)
+{
+    $sql = "SELECT * FROM `association_vehicule_conducteur`";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
+    $conducteurs = $stmt->fetchAll();
+
+    return $conducteurs;
+}
+
 function getVehicule($pdo, $id)
 {
     $sql = "SELECT * FROM vehicule WHERE id_vehicule = :id";
@@ -148,4 +162,11 @@ function nettoyer($dataParam)
     $date = htmlspecialchars($data, ENT_QUOTES, 'UTF-8');
     return $data;
 }
+
+function getNbLigneTable($pdo, $table) {
+    $sql = "SELECT COUNT(*) FROM '".$table."'";
+    $stm = $pdo->prepare($sql);
+    $result = $stm->execute();
+}
+
 ?>

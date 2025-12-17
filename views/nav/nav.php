@@ -10,7 +10,7 @@
                 style="font-size: 1.2rem; font-weight: 700; letter-spacing: 0.2rem; text-decoration: none; color: burlywood; margin-right: 1rem;">Vehicules</a></div>
         <div><a href="<?= WEB_ROOT . "/driver/list-driver.php" ?>"
                 style="font-size: 1.2rem; font-weight: 700; letter-spacing: 0.2rem; text-decoration: none; color: burlywood; margin-right: 1rem;">Chauffeurs</a></div>
-        <div><a href="<?= WEB_ROOT . "/driver/list-driver.php" ?>"
+        <div><a href="<?= WEB_ROOT . "/association/list-association.php" ?>"
                 style="font-size: 1.2rem; font-weight: 700; letter-spacing: 0.2rem; text-decoration: none; color: burlywood">Affectations</a></div>
     </div>
 </header>

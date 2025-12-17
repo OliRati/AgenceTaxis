@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chauffeurs</title>
+    <link rel="stylesheet" href="<?= WEB_ROOT . "/assets/css/pico.min.css" ?>">
+    <link rel="stylesheet" href="<?= WEB_ROOT . "/assets/css/style.css" ?>">
+</head>
+
+<body>
+    <?php include PATH_PROJECT . "/views/nav/nav.php"; ?>
+    <main>
+        <h1 style="text-align: center; color: aqua">Liste des Affectations</h1>
+        <div style="margin: 1rem">
+            <a href="<?= WEB_ROOT . "/driver/add-driver.php" ?>" role="button" class="outline">Creer une Affectation</a>
+            <table>
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>id_conducteur</th>
+                        <th>id_vehicule</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($associationArray as $asso): ?>
+                        <tr>
+                            <td><?= $asso['id_association'] ?></td>
+                            <td><?= $asso['id_conducteur'] ?></td>
+                            <td><?= $asso['id_vehicule'] ?></td>
+                            </td>
+                            <td><a href="<?= WEB_ROOT . "/association/edit-association.php" . "?id=" . $asso['id_association'] ?>"
+                                    role="button" class="secondary">Editer</a>
+                                <a href="<?= WEB_ROOT . "/association/del-association.php" . "?id=" . $asso['id_association'] ?>"
+                                    role="button"
+                                    onclick="return confirm('Etes vous certain de vouloir supprimer ce conducteur ?');">Supprimer</a>
+                            </td>
+                        </tr>
+                    <?php endforeach ?>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+
+</html>
