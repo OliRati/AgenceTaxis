@@ -19,15 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $couleur = nettoyer($_POST['couleur']);
         $immatriculation = nettoyer($_POST['immatriculation']);
 
-        $sql = "UPDATE vehicule SET marque = :marque, modele = :modele, couleur = :couleur, immatriculation = :immatriculation WHERE id_vehicule = :id_vehicule ;";
-        $stm = $pdo->prepare($sql);
-        $result = $stm->execute([
-            ':id_vehicule' => $idVehicule,
-            ':marque' => $marque,
-            ':modele' => $modele,
-            ':couleur' => $couleur,
-            ':immatriculation' => $immatriculation
-        ]);
+        updateVehicule($pdo, $idVehicule, $marque, $modele, $couleur, $immatriculation);
     }
 
     header("Location: " . WEB_ROOT . "/vehicule/list-vehicule.php");

@@ -10,14 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['envoyer'])) {
     $couleur = nettoyer($_POST['couleur']);
     $immatriculation = nettoyer($_POST['immatriculation']);
 
-    $sql = "INSERT INTO vehicule (marque,modele,couleur,immatriculation) VALUES (:marque, :modele, :couleur, :immatriculation)";
-    $stm = $pdo->prepare($sql);
-    $stm->execute([
-        ':marque' => $marque,
-        ':modele' => $modele,
-        ':couleur' => $couleur,
-        ':immatriculation' => $immatriculation
-    ]);
+    addVehicule($pdo, $marque, $modele, $couleur, $immatriculation );
 
     header("Location: " . WEB_ROOT . "/vehicule/list-vehicule.php");
 }
