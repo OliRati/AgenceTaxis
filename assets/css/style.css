@@ -8,6 +8,17 @@
 /* Statistics CSS */
 /******************/
 
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    main {
+        flex: 1;
+    }
+}
+
+
 .rubrique {
     display: inline-block;
     width: 15rem;
@@ -20,4 +31,8 @@
     font-weight: 700;
     letter-spacing: 0.2rem;
     font-size: 1rem;    
+}
+
+body {
+    min-height: 100vh;
 }
