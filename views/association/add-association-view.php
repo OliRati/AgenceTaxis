@@ -1,13 +1,5 @@
 <?php include PATH_PROJECT . "/views/partials/head.php"; ?>
 
-<style>
-    .flex {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-    }
-</style>
-
 <article>
     <h1>Ajouter une affectation Chauffeur - Vehicule</h1>
 
@@ -23,32 +15,30 @@
         <div class="flex">
             <label for="conducteur">Conducteur</label>
             <select id="conducteur" name="conducteur">
-                <option value="" disabled selected>Sélectionnez un conducteur</option>
-                <?php
-                if (!empty($conducteurs)) {
-                    foreach ($conducteurs as $conducteur) { ?>
+                <?php if (!empty($conducteurs)) { ?>
+                    <option value="" disabled selected>Sélectionnez un conducteur</option>
+                    <?php foreach ($conducteurs as $conducteur) { ?>
                         <option value="<?= $conducteur['id_conducteur'] ?>">
                             <?= $conducteur['nom'] . ' ' . $conducteur['prenom'] ?>
                         </option>
                     <?php }
                 } else { ?>
-                    <option disabled>Aucun conducteur disponible</option>
-                    <?php
-                } ?>
+                    <option disabled selected>Aucun conducteur disponible</option>
+                <?php } ?>
             </select>
         </div>
         <div class="flex">
             <label for="vehicule">Véhicule</label>
             <select id="vehicule" name="vehicule">
-                <option value="" disabled selected>Selectionnez un vehicule</option>
-                <?php if (!empty($vehicules)) {
-                    foreach ($vehicules as $vehicule) { ?>
+                <?php if (!empty($vehicules)) { ?>
+                    <option value="" disabled selected>Selectionnez un vehicule</option>
+                    <?php foreach ($vehicules as $vehicule) { ?>
                         <option value="<?= $vehicule['id_vehicule'] ?>">
                             <?= $vehicule['marque'] . ' ' . $vehicule['modele'] . ' ' . $vehicule['couleur'] ?>
                         </option>
                     <?php }
                 } else { ?>
-                    <option disabled>Aucun véhicule disponible</option>
+                    <option disabled selected>Aucun véhicule disponible</option>
                 <?php } ?>
             </select>
         </div>
@@ -62,7 +52,7 @@
 
 <script>
     // Basic client-side validation
-    document.getElementById('associationForm').addEventListener('submit', function(e) {
+    document.getElementById('associationForm').addEventListener('submit', function (e) {
         const conducteur = document.getElementById('conducteur').value;
         const vehicule = document.getElementById('vehicule').value;
         if (!conducteur || !vehicule) {

@@ -4,32 +4,39 @@
 <div style="margin: 1rem">
     <a href="<?= WEB_ROOT . "/association/add-association.php" ?>" role="button" class="outline">Creer une
         Affectation</a>
-    <table>
-        <thead>
-            <tr>
-                <th>id</th>
-                <th>id_conducteur</th>
-                <th>id_vehicule</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($associationArray as $asso): ?>
+
+    <?php if (!empty($associationArray)) { ?>
+        <table>
+            <thead>
                 <tr>
-                    <td><?= $asso['id_association'] ?></td>
-                    <td><?= $asso['id_conducteur'] . ' - ' . $asso['nom'] . ' ' . $asso['prenom'] ?></td>
-                    <td><?= $asso['id_vehicule'] . ' - ' . $asso['marque'] . ' ' . $asso['modele'] . ' - ' . $asso['couleur'] ?></td>
-                    </td>
-                    <td><a href="<?= WEB_ROOT . "/association/edit-association.php" . "?id=" . $asso['id_association'] ?>"
-                            role="button" class="secondary">Editer</a>
-                        <a href="<?= WEB_ROOT . "/association/del-association.php" . "?id=" . $asso['id_association'] ?>"
-                            role="button"
-                            onclick="return confirm('Etes vous certain de vouloir supprimer ce conducteur ?');">Supprimer</a>
-                    </td>
+                    <th>id</th>
+                    <th>id_conducteur</th>
+                    <th>id_vehicule</th>
+                    <th>Actions</th>
                 </tr>
-            <?php endforeach ?>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                <?php foreach ($associationArray as $asso): ?>
+                    <tr>
+                        <td><?= $asso['id_association'] ?></td>
+                        <td><?= $asso['id_conducteur'] . ' - ' . $asso['nom'] . ' ' . $asso['prenom'] ?></td>
+                        <td><?= $asso['id_vehicule'] . ' - ' . $asso['marque'] . ' ' . $asso['modele'] . ' - ' . $asso['couleur'] ?>
+                        </td>
+                        </td>
+                        <td><a href="<?= WEB_ROOT . "/association/edit-association.php" . "?id=" . $asso['id_association'] ?>"
+                                role="button" class="secondary">Editer</a>
+                            <a href="<?= WEB_ROOT . "/association/del-association.php" . "?id=" . $asso['id_association'] ?>"
+                                role="button"
+                                onclick="return confirm('Etes vous certain de vouloir supprimer ce conducteur ?');">Supprimer</a>
+                        </td>
+                    </tr>
+                <?php endforeach ?>
+            </tbody>
+        </table>
+    <?php } else { ?>
+        <p class="empty">Aucun affectation vehicule - conducteur est disponible.</p>
+    <?php } ?>
+
 </div>
 
 <?php include PATH_PROJECT . "/views/partials/tail.php"; ?>

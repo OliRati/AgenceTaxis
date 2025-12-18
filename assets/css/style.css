@@ -1,12 +1,32 @@
 /* Customize CSS from pico.css */
 
+/*********************/
+/* Forms css         */
+/*********************/
+
 [role=button] {
     padding: 0.1rem 0.5rem;
 }
 
 button[type="submit"] {
     padding: 0.1rem 0.5rem;
-    width:fit-content;
+    width: fit-content;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    label {
+        width: 12rem;
+    }
+}
+
+.empty {
+    font-size: 1rem;
+    color: gray;
+    margin: 1rem 0;
 }
 
 /******************/
@@ -39,7 +59,7 @@ button[type="submit"] {
     color: white;
     font-weight: 700;
     letter-spacing: 0.2rem;
-    font-size: 1rem;    
+    font-size: 1rem;
 }
 
 body {
