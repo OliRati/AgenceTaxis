@@ -1,6 +1,6 @@
 <?php
 error_reporting(E_ALL);
-ini_set('display_errors' , '1');
+ini_set('display_errors', '1');
 
 define("PATH_PROJECT", $_SERVER['DOCUMENT_ROOT'] . "\devweb-php\AgenceTaxis");
 define("WEB_ROOT", "/devweb-php/AgenceTaxis");
@@ -40,7 +40,10 @@ function listerConducteurs($pdo)
 
 function listerAssociations($pdo)
 {
-    $sql = "SELECT * FROM `association_vehicule_conducteur`";
+    $sql = "SELECT a.id_association, c.id_conducteur, c.nom, c.prenom, v.id_vehicule, v.marque, v.modele, v.couleur FROM conducteur c
+            JOIN association_vehicule_conducteur a ON c.id_conducteur = a.id_conducteur
+            JOIN vehicule v ON a.id_vehicule = v.id_vehicule
+            ORDER BY a.id_association";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     $conducteurs = $stmt->fetchAll();
@@ -171,22 +174,23 @@ function nettoyer($dataParam)
     return $data;
 }
 
-function getNbLigneTable($pdo, $table) {
-    $sql = "SELECT COUNT(*) as nb FROM ".$table;
+function getNbLigneTable($pdo, $table)
+{
+    $sql = "SELECT COUNT(*) as nb FROM " . $table;
     $stmt = $pdo->prepare($sql);
     $result = $stmt->execute();
 
     if ($result) {
         $value = $stmt->fetch();
         $nbLignes = $value['nb'];
-    }
-    else
+    } else
         $nbLignes = 0;
 
     return $nbLignes;
 }
 
-function getUnusedVehicule($pdo) {
+function getUnusedVehicule($pdo)
+{
     $sql = "SELECT COUNT(*) as nb
             FROM vehicule v
             LEFT JOIN association_vehicule_conducteur a
@@ -199,14 +203,14 @@ function getUnusedVehicule($pdo) {
     if ($result) {
         $value = $stmt->fetch();
         $nbLignes = $value['nb'];
-    }
-    else
+    } else
         $nbLignes = 0;
 
     return $nbLignes;
 }
 
-function getUnusedConducteur($pdo) {
+function getUnusedConducteur($pdo)
+{
     $sql = "SELECT COUNT(*) as nb
             FROM conducteur c
             LEFT JOIN association_vehicule_conducteur a
@@ -219,8 +223,7 @@ function getUnusedConducteur($pdo) {
     if ($result) {
         $value = $stmt->fetch();
         $nbLignes = $value['nb'];
-    }
-    else
+    } else
         $nbLignes = 0;
 
     return $nbLignes;

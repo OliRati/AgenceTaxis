@@ -17,8 +17,8 @@
             <?php foreach ($associationArray as $asso): ?>
                 <tr>
                     <td><?= $asso['id_association'] ?></td>
-                    <td><?= $asso['id_conducteur'] ?></td>
-                    <td><?= $asso['id_vehicule'] ?></td>
+                    <td><?= $asso['id_conducteur'] . ' - ' . $asso['nom'] . ' ' . $asso['prenom'] ?></td>
+                    <td><?= $asso['id_vehicule'] . ' - ' . $asso['marque'] . ' ' . $asso['modele'] . ' - ' . $asso['couleur'] ?></td>
                     </td>
                     <td><a href="<?= WEB_ROOT . "/association/edit-association.php" . "?id=" . $asso['id_association'] ?>"
                             role="button" class="secondary">Editer</a>
