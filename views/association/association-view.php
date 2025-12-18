@@ -39,7 +39,7 @@
         </div>
         <div class="flex">
             <button type="submit" name="envoyer">Envoyer</button>
-            <button type="submit" name="annuler"
+            <button type="button" role="button"
                 onclick="window.location.href='<?= WEB_ROOT . "/association/list-association.php" ?>';">Annuler</button>
         </div>
     </form>

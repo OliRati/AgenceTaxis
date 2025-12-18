@@ -169,7 +169,7 @@ function updateConducteur($pdo, $idConducteur, $nom, $prenom)
     return $result;
 }
 
-function updateAssociation($pdo, $idAssociation, $idConducteur, $idVehicule )
+function updateAssociation($pdo, $idAssociation, $idConducteur, $idVehicule)
 {
     $sql = "UPDATE association_vehicule_conducteur SET id_conducteur = :id_conducteur, id_vehicule = :id_vehicule WHERE id_association = :id_association ;";
     $stm = $pdo->prepare($sql);
@@ -216,7 +216,7 @@ function nettoyer($dataParam)
 
 function getNbLigneTable($pdo, $table)
 {
-    $sql = "SELECT COUNT(*) as nb FROM " . $table;
+    $sql = "SELECT COUNT(*) as nb FROM `" . $table . "`";
     $stmt = $pdo->prepare($sql);
     $result = $stmt->execute();
 
@@ -269,4 +269,15 @@ function getUnusedConducteur($pdo)
     return $nbLignes;
 }
 
+function createDatabase($pdo, $sqlfile)
+{
+    $query = file_get_contents($sqlfile);
+    $pdo->exec($query);
+}
+
+function redirect($url)
+{
+    header("Location: " . WEB_ROOT . $url);
+    exit;
+}
 ?>

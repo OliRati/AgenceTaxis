@@ -10,6 +10,15 @@
 
 <article>
     <h1>Editer une affectation Chauffeur - Vehicule</h1>
+
+    <?php if (!empty($errors)) { ?>
+        <div class="error">
+            <?php foreach ($errors as $error) {
+                echo $error . "<br>";
+            } ?>
+        </div>
+    <?php } ?>
+
     <form action="" method="POST">
         <div class="flex">
             <label for="conducteur">Conducteur</label>
@@ -35,7 +44,7 @@
         </div>
         <div class="flex">
             <button type="submit" name="envoyer">Envoyer</button>
-            <button type="submit" name="annuler"
+            <button type="button" role="button"
                 onclick="window.location.href='<?= WEB_ROOT . "/association/list-association.php" ?>';">Annuler</button>
         </div>
     </form>
