@@ -1,50 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php include PATH_PROJECT . "/views/partials/head.php"; ?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vehicules</title>
-    <link rel="stylesheet" href="<?= WEB_ROOT . "/assets/css/pico.min.css" ?>">
-    <link rel="stylesheet" href="<?= WEB_ROOT . "/assets/css/style.css" ?>">
-</head>
+<style>
+    .flex {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+</style>
 
-<body>
-    <div class="wrapper">
-        <style>
-            .flex {
-                display: flex;
-                align-items: center;
-                gap: 1rem;
-            }
-        </style>
+<article>
+    <h1>Ajouter un conducteur</h1>
+    <form action="" method="POST">
+        <div class="flex">
+            <label for="nom">Nom</label>
+            <input type="text" id="nom" name="nom" required>
+        </div>
+        <div class="flex">
+            <label for="prenom">Prenom</label>
+            <input type="text" id="prenom" name="prenom" required>
+        </div>
+        <div class="flex">
+            <button type="submit" name="envoyer">Envoyer</button>
+            <button type="button"
+                onclick="window.location.href='<?= WEB_ROOT . "/driver/list-driver.php" ?>';">Annuler</button>
+        </div>
+    </form>
+</article>
 
-        <?php include PATH_PROJECT . "/views/nav/nav.php"; ?>
-
-        <main>
-            <article>
-                <h1>Ajouter un conducteur</h1>
-                <form action="" method="POST">
-                    <div class="flex">
-                        <label for="nom">Nom</label>
-                        <input type="text" id="nom" name="nom" required>
-                    </div>
-                    <div class="flex">
-                        <label for="prenom">Prenom</label>
-                        <input type="text" id="prenom" name="prenom" required>
-                    </div>
-                    <div class="flex">
-                        <button type="submit" name="envoyer">Envoyer</button>
-                        <button type="button"
-                            onclick="window.location.href='<?= WEB_ROOT . "/driver/list-driver.php" ?>';">Annuler</button>
-                    </div>
-                </form>
-            </article>
-        </main>
-
-        <?php include PATH_PROJECT . "/views/footer/footer.php"; ?>
-
-    </div>
-</body>
-
-</html>
+<?php include PATH_PROJECT . "/views/partials/tail.php"; ?>
