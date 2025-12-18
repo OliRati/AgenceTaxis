@@ -14,7 +14,7 @@
     <main>
         <h1 style="text-align: center; color: aqua">Liste des Affectations</h1>
         <div style="margin: 1rem">
-            <a href="<?= WEB_ROOT . "/driver/add-driver.php" ?>" role="button" class="outline">Creer une Affectation</a>
+            <a href="<?= WEB_ROOT . "/association/add-association.php" ?>" role="button" class="outline">Creer une Affectation</a>
             <table>
                 <thead>
                     <tr>

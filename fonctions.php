@@ -156,6 +156,14 @@ function supprimerConducteur($pdo, $id)
     return $suppResult;
 }
 
+function supprimerAssociation($pdo, $id)
+{
+    $stm = $pdo->prepare("DELETE FROM association_vehicule_conducteur where id_association = :id");
+    $stm->bindParam(':id', $id, PDO::PARAM_INT);
+    $suppResult = $stm->execute();
+    return $suppResult;
+}
+
 function nettoyer($dataParam)
 {
     $data = trim($dataParam);
@@ -164,9 +172,58 @@ function nettoyer($dataParam)
 }
 
 function getNbLigneTable($pdo, $table) {
-    $sql = "SELECT COUNT(*) FROM '".$table."'";
-    $stm = $pdo->prepare($sql);
-    $result = $stm->execute();
+    $sql = "SELECT COUNT(*) as nb FROM ".$table;
+    $stmt = $pdo->prepare($sql);
+    $result = $stmt->execute();
+
+    if ($result) {
+        $value = $stmt->fetch();
+        $nbLignes = $value['nb'];
+    }
+    else
+        $nbLignes = 0;
+
+    return $nbLignes;
+}
+
+function getUnusedVehicule($pdo) {
+    $sql = "SELECT COUNT(*) as nb
+            FROM vehicule v
+            LEFT JOIN association_vehicule_conducteur a
+            ON v.id_vehicule = a.id_vehicule
+            WHERE id_conducteur IS NULL";
+
+    $stmt = $pdo->prepare($sql);
+    $result = $stmt->execute();
+
+    if ($result) {
+        $value = $stmt->fetch();
+        $nbLignes = $value['nb'];
+    }
+    else
+        $nbLignes = 0;
+
+    return $nbLignes;
+}
+
+function getUnusedConducteur($pdo) {
+    $sql = "SELECT COUNT(*) as nb
+            FROM conducteur c
+            LEFT JOIN association_vehicule_conducteur a
+            ON c.id_conducteur = a.id_conducteur
+            WHERE id_vehicule IS NULL";
+
+    $stmt = $pdo->prepare($sql);
+    $result = $stmt->execute();
+
+    if ($result) {
+        $value = $stmt->fetch();
+        $nbLignes = $value['nb'];
+    }
+    else
+        $nbLignes = 0;
+
+    return $nbLignes;
 }
 
 ?>

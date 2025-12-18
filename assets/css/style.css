@@ -3,3 +3,21 @@
 [role=button] {
     padding: 0.1rem 0.5rem;
 }
+
+/******************/
+/* Statistics CSS */
+/******************/
+
+.rubrique {
+    display: inline-block;
+    width: 15rem;
+    color: blanchedalmond;
+    font-size: 1rem;
+}
+
+.valeur {
+    color: white;
+    font-weight: 700;
+    letter-spacing: 0.2rem;
+    font-size: 1rem;    
+}
