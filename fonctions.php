@@ -75,6 +75,18 @@ function getConducteur($pdo, $id)
     return $conducteur;
 }
 
+function getAssociation($pdo, $id)
+{
+    $sql = "SELECT * FROM association_vehicule_conducteur WHERE id_association = :id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+
+    $stmt->execute();
+    $association = $stmt->fetch();
+
+    return $association;
+}
+
 function getLastInsertId($pdo)
 {
     $sql = "SELECT LAST_INSERT_ID()";
@@ -114,6 +126,20 @@ function ajoutConducteur($pdo, $nom, $prenom)
     return $state;
 }
 
+function ajoutAssociation($pdo, $idConducteur, $idVehicule)
+{
+    $sql = "INSERT INTO association_vehicule_conducteur (id_conducteur, id_vehicule) VALUES (:id_conducteur, :id_vehicule)";
+    $stm = $pdo->prepare($sql);
+    $state = $stm->execute([
+        ':id_conducteur' => $idConducteur,
+        ':id_vehicule' => $idVehicule
+    ]);
+
+    $lastid = getLastInsertId($pdo);
+
+    return $state;
+}
+
 function updateVehicule($pdo, $idVehicule, $marque, $modele, $couleur, $immatriculation)
 {
     $sql = "UPDATE vehicule SET marque = :marque, modele = :modele, couleur = :couleur, immatriculation = :immatriculation WHERE id_vehicule = :id_vehicule ;";
@@ -138,6 +164,20 @@ function updateConducteur($pdo, $idConducteur, $nom, $prenom)
         ':id_conducteur' => $idConducteur,
         ':nom' => $nom,
         ':prenom' => $prenom
+    ]);
+
+    return $result;
+}
+
+function updateAssociation($pdo, $idAssociation, $idConducteur, $idVehicule )
+{
+    $sql = "UPDATE association_vehicule_conducteur SET id_conducteur = :id_conducteur, id_vehicule = :id_vehicule WHERE id_association = :id_association ;";
+    $stm = $pdo->prepare($sql);
+
+    $result = $stm->execute([
+        ':id_conducteur' => $idConducteur,
+        ':id_vehicule' => $idVehicule,
+        ':id_association' => $idAssociation
     ]);
 
     return $result;
