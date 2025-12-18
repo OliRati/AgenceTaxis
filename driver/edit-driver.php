@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         updateConducteur($pdo, $idConducteur, $nom, $prenom);
     }
 
-    header("Location: " . WEB_ROOT . "/driver/list-driver.php");
+    redirect("/driver/list-driver.php");
 }
 
 include PATH_PROJECT . "/views/driver/driver-view.php";

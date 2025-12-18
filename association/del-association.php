@@ -11,5 +11,5 @@ if (!is_numeric($idAssociation)) {
 $ret = supprimerAssociation($pdo, $idAssociation);
 
 if ($ret) {
-    header("Location: " . WEB_ROOT . "/association/list-association.php");
+    redirect("/association/list-association.php");
 }

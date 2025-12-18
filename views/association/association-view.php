@@ -9,7 +9,7 @@
 </style>
 
 <article>
-    <h1>Editer une affectation Chauffeur - Vehicule</h1>
+    <h1>Modifier une affectation Chauffeur - Vehicule</h1>
     <form action="?id=<?= $idAssociation ?>" method="POST">
         <div class="flex">
             <label for="conducteur">Conducteur</label>

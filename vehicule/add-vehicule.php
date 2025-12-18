@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['envoyer'])) {
     $state = ajoutVehicule($pdo, $marque, $modele, $couleur, $immatriculation );
 
     if ($state) {
-        header("Location: " . WEB_ROOT . "/vehicule/list-vehicule.php");
+        redirect("vehicule/list-vehicule.php");
     }
 }
 

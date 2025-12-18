@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         updateVehicule($pdo, $idVehicule, $marque, $modele, $couleur, $immatriculation);
     }
 
-    header("Location: " . WEB_ROOT . "/vehicule/list-vehicule.php");
+    redirect("/vehicule/list-vehicule.php");
 }
 
 include PATH_PROJECT . "/views/vehicule/vehicule-view.php";

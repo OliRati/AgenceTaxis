@@ -11,5 +11,5 @@ if (!is_numeric($idVehicule)) {
 $suppResultVehicule = supprimerVehicule($pdo, $idVehicule);
 
 if ($suppResultVehicule) {
-    header("Location: " . WEB_ROOT . "/vehicule/list-vehicule.php");
+    redirect("/vehicule/list-vehicule.php");
 }

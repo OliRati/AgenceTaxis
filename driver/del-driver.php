@@ -11,5 +11,5 @@ if (!is_numeric($idConducteur)) {
 $ret = supprimerConducteur($pdo, $idConducteur);
 
 if ($ret) {
-    header("Location: " . WEB_ROOT . "/driver/list-driver.php");
+    redirect("/driver/list-driver.php");
 }

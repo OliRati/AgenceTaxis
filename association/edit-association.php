@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         updateAssociation($pdo, $idAssociation, $idConducteur, $idVehicule);
     }
 
-    header("Location: " . WEB_ROOT . "/association/list-association.php");
+    redirect("/association/list-association.php");
 }
 
 include PATH_PROJECT . "/views/association/association-view.php";

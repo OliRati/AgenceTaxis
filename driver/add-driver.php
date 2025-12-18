@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['envoyer'])) {
     $state = ajoutConducteur($pdo, $nom, $prenom );
 
     if ($state) {
-        header("Location: " . WEB_ROOT . "/driver/list-driver.php");
+        redirect("/driver/list-driver.php");
     }
 }
 
