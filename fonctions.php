@@ -107,9 +107,12 @@ function ajoutVehicule($pdo, $marque, $modele, $couleur, $immatriculation)
         ':immatriculation' => $immatriculation
     ]);
 
-    $lastid = getLastInsertId($pdo);
+    if ($state) {
+        $lastid = getLastInsertId($pdo);
+        return $lastid;
+    }
 
-    return $state;
+    return false;
 }
 
 function ajoutConducteur($pdo, $nom, $prenom)
@@ -121,9 +124,12 @@ function ajoutConducteur($pdo, $nom, $prenom)
         ':prenom' => $prenom
     ]);
 
-    $lastid = getLastInsertId($pdo);
+    if ($state) {
+        $lastid = getLastInsertId($pdo);
+        return $lastid;
+    }
 
-    return $state;
+    return false;
 }
 
 function ajoutAssociation($pdo, $idConducteur, $idVehicule)
@@ -135,9 +141,12 @@ function ajoutAssociation($pdo, $idConducteur, $idVehicule)
         ':id_vehicule' => $idVehicule
     ]);
 
-    $lastid = getLastInsertId($pdo);
+    if ($state) {
+        $lastid = getLastInsertId($pdo);
+        return $lastid;
+    }
 
-    return $state;
+    return false;
 }
 
 function updateVehicule($pdo, $idVehicule, $marque, $modele, $couleur, $immatriculation)

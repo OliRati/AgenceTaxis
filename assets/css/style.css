@@ -29,9 +29,11 @@ button[type="submit"] {
     margin: 1rem 0;
 }
 
-/******************/
-/* Statistics CSS */
-/******************/
+/* Ensure footer stay at botom on small pages */
+
+body {
+    min-height: 100vh;
+}
 
 .wrapper {
     display: flex;
@@ -42,6 +44,10 @@ button[type="submit"] {
         flex: 1;
     }
 }
+
+/******************/
+/* Statistics CSS */
+/******************/
 
 .error {
     color: lightcoral;
@@ -60,8 +66,4 @@ button[type="submit"] {
     font-weight: 700;
     letter-spacing: 0.2rem;
     font-size: 1rem;
-}
-
-body {
-    min-height: 100vh;
 }
