@@ -17,7 +17,7 @@ function dd($data)
 
 function listerVehicules($pdo)
 {
-    $sql = "SELECT * FROM vehicule";
+    $sql = "SELECT v.id_vehicule, v.marque, v.modele, v.couleur, v.immatriculation, a.id_conducteur FROM vehicule v LEFT JOIN association_vehicule_conducteur a ON v.id_vehicule = a.id_vehicule GROUP BY v.id_vehicule";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     $vehicules = $stmt->fetchAll();
@@ -27,7 +27,7 @@ function listerVehicules($pdo)
 
 function listerConducteurs($pdo)
 {
-    $sql = "SELECT * FROM conducteur";
+    $sql = "SELECT c.id_conducteur, c.nom, c.prenom, a.id_vehicule FROM conducteur c LEFT JOIN association_vehicule_conducteur a ON c.id_conducteur = a.id_conducteur GROUP BY c.id_conducteur";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     $conducteurs = $stmt->fetchAll();
@@ -86,11 +86,7 @@ function getAssociation($pdo, $id)
 
 function getLastInsertId($pdo)
 {
-    $sql = "SELECT LAST_INSERT_ID()";
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute();
-    $last_insert_id = $stmt->fetch();
-    return $last_insert_id;
+    return $pdo->lastInsertId();
 }
 
 function ajoutVehicule($pdo, $marque, $modele, $couleur, $immatriculation)
@@ -216,13 +212,13 @@ function supprimerAssociation($pdo, $id)
 function nettoyer($dataParam)
 {
     $data = trim($dataParam);
-    $date = htmlspecialchars($data, ENT_QUOTES, 'UTF-8');
+    $data = htmlspecialchars($data, ENT_QUOTES, 'UTF-8');
     return $data;
 }
 
 function getNbLigneTable($pdo, $table)
 {
-    $sql = "SELECT COUNT(*) as nb FROM `" . $table . "`";
+    $sql = "SELECT COUNT(*) as nb FROM `".$table."`";
     $stmt = $pdo->prepare($sql);
     $result = $stmt->execute();
 
