@@ -32,7 +32,7 @@
                                 role="button"
                                 onclick="return confirm('Etes vous certain de vouloir supprimer ce vehicule ?');">Supprimer</a>
                             <?php if (!isset($car['id_conducteur'])) { ?>
-                                <a href="<?= WEB_ROOT . "/association/add-association.php" . "?id=" . $driver['id_conducteur'] ?>"
+                                <a href="<?= WEB_ROOT . "/association/add-association.php" . "?car=" . $car['id_vehicule'] ?>"
                                     role="button">Affecter</a>
                             <?php } ?>
                         </td>

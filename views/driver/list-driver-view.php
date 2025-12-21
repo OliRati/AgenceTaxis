@@ -28,7 +28,7 @@
                                 role="button"
                                 onclick="return confirm('Etes vous certain de vouloir supprimer ce conducteur ?');">Supprimer</a>
                             <?php if (!isset($driver['id_vehicule'])) { ?>
-                                <a href="<?= WEB_ROOT . "/association/add-association.php" . "?id=" . $driver['id_conducteur'] ?>"
+                                <a href="<?= WEB_ROOT . "/association/add-association.php" . "?driver=" . $driver['id_conducteur'] ?>"
                                     role="button">Affecter</a>
                             <?php } ?>
                         </td>

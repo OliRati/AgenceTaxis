@@ -9,32 +9,42 @@
 </style>
 
 <article>
-    <h1>Modifier une affectation Chauffeur - Vehicule</h1>
-    <form action="?id=<?= $idAssociation ?>" method="POST">
+    <h1><?= $pageTitle ?></h1>
+    <form action="?id=<?= $idAssociation ?>" id="associationForm" method="POST">
         <div class="flex">
             <label for="conducteur">Conducteur</label>
             <select id="conducteur" name="conducteur">
-                <?php foreach ($conducteurs as $conducteur) { ?>
-                    <option value="<?= $conducteur['id_conducteur'] ?>" <?php
-                      if ($conducteur['id_conducteur'] === $association['id_conducteur'])
-                          echo "selected";
-                      ?>>
-                        <?= $conducteur['nom'] . ' ' . $conducteur['prenom'] ?>
-                    </option>
-                <?php } ?>
+                <?php if (empty($conducteurs)) { ?>
+                    <option value="" disabled selected>Aucun conducteur est disponible</option>
+                <?php } else { ?>
+                    <option value="" disabled selected>Sélectionnez un conducteur</option>
+                    <?php foreach ($conducteurs as $conducteur) { ?>
+                        <option value="<?= $conducteur['id_conducteur'] ?>" <?php
+                                                                            if (isset($idConducteur) && $conducteur['id_conducteur'] === $idConducteur)
+                                                                                echo "selected";
+                                                                            ?>>
+                            <?= $conducteur['nom'] . ' ' . $conducteur['prenom'] ?>
+                        </option>
+                <?php }
+                } ?>
             </select>
         </div>
         <div class=" flex">
             <label for="vehicule">Véhicule</label>
             <select id="vehicule" name="vehicule">
-                <?php foreach ($vehicules as $vehicule) { ?>
-                    <option value="<?= $vehicule['id_vehicule'] ?>" <?php
-                      if ($vehicule['id_vehicule'] === $association['id_vehicule'])
-                          echo "selected";
-                      ?>>
-                        <?= $vehicule['marque'] . ' ' . $vehicule['modele'] . ' ' . $vehicule['couleur'] ?>
-                    </option>
-                <?php } ?>
+                <?php if (empty($vehicules)) { ?>
+                    <option value="" disabled selected>Aucun vehicule est disponible</option>
+                <?php } else { ?>
+                    <option value="" disabled selected>Selectionnez un vehicule</option>
+                    <?php foreach ($vehicules as $vehicule) { ?>
+                        <option value="<?= $vehicule['id_vehicule'] ?>" <?php
+                                                                        if (isset($idVehicule) && $vehicule['id_vehicule'] === $idVehicule)
+                                                                            echo "selected";
+                                                                        ?>>
+                            <?= $vehicule['marque'] . ' ' . $vehicule['modele'] . ' ' . $vehicule['couleur'] ?>
+                        </option>
+                <?php }
+                } ?>
             </select>
         </div>
         <div class="flex">
@@ -44,5 +54,17 @@
         </div>
     </form>
 </article>
+
+<script>
+    // Basic client-side validation
+    document.getElementById('associationForm').addEventListener('submit', function(e) {
+        const conducteur = document.getElementById('conducteur').value;
+        const vehicule = document.getElementById('vehicule').value;
+        if (!conducteur || !vehicule) {
+            alert('Vous devez sélectionner un conducteur et un véhicule.');
+            e.preventDefault();
+        }
+    });
+</script>
 
 <?php include PHP_ROOT . "/views/partials/tail.php"; ?>

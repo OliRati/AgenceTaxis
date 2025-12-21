@@ -3,6 +3,18 @@ require '../.env.php';
 include '../fonctions.php';
 require '../connexiondb.php';
 
+if (isset($_GET['car'])) {
+    $tmp_idVehicule = nettoyer($_GET['car']);
+    if (is_numeric($tmp_idVehicule))
+        $idVehicule = intval($tmp_idVehicule, 10);
+}
+
+if (isset($_GET['driver'])) {
+    $tmp_idConducteur = nettoyer($_GET['driver']);
+    if (is_numeric($tmp_idConducteur))
+        $idConducteur = intval($tmp_idConducteur, 10);
+}
+
 $conducteurs = listerConducteurs($pdo);
 $vehicules = listerVehicules($pdo);
 
@@ -30,5 +42,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['envoyer'])) {
     $errors[] = "Vous devez sélectionner un conducteur et un vehicule";
 }
 
-include PHP_ROOT . "/views/association/add-association-view.php";
-?>
+$pageTitle = 'Ajouter une affectation Chauffeur - Vehicule';
+include PHP_ROOT . "/views/association/association-view.php";
