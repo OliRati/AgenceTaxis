@@ -23,13 +23,16 @@
                         <td><?= $driver['prenom'] ?></td>
                         </td>
                         <td><a href="<?= WEB_ROOT . "/driver/edit-driver.php" . "?id=" . $driver['id_conducteur'] ?>"
-                                role="button" class="secondary">Editer</a>
+                                role="button" class="secondary">
+                                Editer <img src="<?= WEB_ROOT . "/assets/img/edit_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" ?>" alt="Edit icon"></a>
                             <a href="<?= WEB_ROOT . "/driver/del-driver.php" . "?id=" . $driver['id_conducteur'] ?>"
                                 role="button"
-                                onclick="return confirm('Etes vous certain de vouloir supprimer ce conducteur ?');">Supprimer</a>
+                                onclick="return confirm('Etes vous certain de vouloir supprimer ce conducteur ?');">
+                                Supprimer <img src="<?= WEB_ROOT . "/assets/img/delete_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" ?>" alt="Edit icon"></a>
                             <?php if (!isset($driver['id_vehicule'])) { ?>
                                 <a href="<?= WEB_ROOT . "/association/add-association.php" . "?driver=" . $driver['id_conducteur'] ?>"
-                                    role="button">Affecter</a>
+                                    role="button">
+                                    Affecter <img src="<?= WEB_ROOT . "/assets/img/add_link_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" ?>" alt="Link icon"></a>
                             <?php } ?>
                         </td>
                     </tr>

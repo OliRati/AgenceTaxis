@@ -24,10 +24,12 @@
                         </td>
                         </td>
                         <td><a href="<?= WEB_ROOT . "/association/edit-association.php" . "?id=" . $asso['id_association'] ?>"
-                                role="button" class="secondary">Editer</a>
+                                role="button" class="secondary">
+                                Editer <img src="<?= WEB_ROOT . "/assets/img/edit_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" ?>" alt="Edit icon"></a>
                             <a href="<?= WEB_ROOT . "/association/del-association.php" . "?id=" . $asso['id_association'] ?>"
                                 role="button"
-                                onclick="return confirm('Etes vous certain de vouloir supprimer ce conducteur ?');">Supprimer</a>
+                                onclick="return confirm('Etes vous certain de vouloir supprimer ce conducteur ?');">
+                                Supprimer <img src="<?= WEB_ROOT . "/assets/img/delete_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" ?>" alt="Edit icon"></a>
                         </td>
                     </tr>
                 <?php endforeach ?>

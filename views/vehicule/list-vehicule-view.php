@@ -27,13 +27,16 @@
                         <td><?= $car['couleur'] ?></td>
                         <td><?= $car['immatriculation'] ?></td>
                         <td><a href="<?= WEB_ROOT . "/vehicule/edit-vehicule.php" . "?id=" . $car['id_vehicule'] ?>"
-                                role="button" class="secondary">Editer</a>
+                                role="button" class="secondary">
+                                Editer <img src="<?= WEB_ROOT . "/assets/img/edit_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" ?>" alt="Edit icon"></a>
                             <a href="<?= WEB_ROOT . "/vehicule/del-vehicule.php" . "?id=" . $car['id_vehicule'] ?>"
                                 role="button"
-                                onclick="return confirm('Etes vous certain de vouloir supprimer ce vehicule ?');">Supprimer</a>
+                                onclick="return confirm('Etes vous certain de vouloir supprimer ce vehicule ?');">
+                                Supprimer <img src="<?= WEB_ROOT . "/assets/img/delete_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" ?>" alt="Edit icon"></a>
                             <?php if (!isset($car['id_conducteur'])) { ?>
                                 <a href="<?= WEB_ROOT . "/association/add-association.php" . "?car=" . $car['id_vehicule'] ?>"
-                                    role="button">Affecter</a>
+                                    role="button">
+                                    Affecter <img src="<?= WEB_ROOT . "/assets/img/add_link_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" ?>" alt="Link icon"></a>
                             <?php } ?>
                         </td>
                     </tr>
