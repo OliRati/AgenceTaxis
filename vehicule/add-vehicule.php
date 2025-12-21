@@ -3,6 +3,11 @@ require '../.env.php';
 include '../fonctions.php';
 require '../connexiondb.php';
 
+$marque = "";
+$modele = "";
+$couleur = "";
+$immatriculation = "";
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['envoyer'])) {
     // traitement du formulaire d'ajout d'un vehicule
 
@@ -17,11 +22,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['envoyer'])) {
         redirect("/vehicule/list-vehicule.php");
     }
 }
-
-$marque = "";
-$modele = "";
-$couleur = "";
-$immatriculation = "";
 
 $pageTitle = "Ajouter un vehicule";
 include PHP_ROOT . "/views/vehicule/vehicule-view.php";

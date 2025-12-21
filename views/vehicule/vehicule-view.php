@@ -9,7 +9,7 @@
 </style>
 
 <article>
-    <h1>Editer un vehicule</h1>
+    <h1><?=  $pageTitle ?></h1>
     <form action="?id=<?= $idVehicule ?>" method="POST">
         <div class="flex">
             <label for="marque">Marque</label>
