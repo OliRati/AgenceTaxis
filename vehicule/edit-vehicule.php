@@ -1,4 +1,5 @@
 <?php
+require '../.env.php';
 include '../fonctions.php';
 require '../connexiondb.php';
 
@@ -25,4 +26,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     redirect("/vehicule/list-vehicule.php");
 }
 
-include PATH_PROJECT . "/views/vehicule/vehicule-view.php";
+include PHP_ROOT . "/views/vehicule/vehicule-view.php";

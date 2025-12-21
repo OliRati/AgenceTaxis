@@ -1,4 +1,4 @@
-<?php include PATH_PROJECT . "/views/partials/head.php"; ?>
+<?php include PHP_ROOT . "/views/partials/head.php"; ?>
 
 <style>
     .flex {
@@ -45,4 +45,4 @@
     </form>
 </article>
 
-<?php include PATH_PROJECT . "/views/partials/tail.php"; ?>
+<?php include PHP_ROOT . "/views/partials/tail.php"; ?>

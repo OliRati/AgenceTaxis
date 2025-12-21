@@ -3,7 +3,7 @@ require '.env.php';
 include 'fonctions.php';
 require 'connexiondb.php';
 
-include PATH_PROJECT . "/views/partials/head.php";
+include PHP_ROOT . "/views/partials/head.php";
 ?>
 
 <h1 style="text-align: center; color: aqua">Résumé</h1>
@@ -23,4 +23,4 @@ include PATH_PROJECT . "/views/partials/head.php";
 </article>
 </main>
 
-<?php include PATH_PROJECT . "/views/partials/tail.php"; ?>
+<?php include PHP_ROOT . "/views/partials/tail.php"; ?>

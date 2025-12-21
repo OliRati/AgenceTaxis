@@ -1,7 +1,8 @@
 <?php
+require '../.env.php';
 include '../fonctions.php';
 require '../connexiondb.php';
 
 $vehiculeArray = listerVehicules($pdo);
 
-include PATH_PROJECT . "/views/vehicule/list-vehicule-view.php";
+include PHP_ROOT . "/views/vehicule/list-vehicule-view.php";

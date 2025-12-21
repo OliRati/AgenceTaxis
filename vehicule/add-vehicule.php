@@ -1,4 +1,5 @@
 <?php
+require '../.env.php';
 include '../fonctions.php';
 require '../connexiondb.php';
 
@@ -17,4 +18,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['envoyer'])) {
     }
 }
 
-include PATH_PROJECT . "/views/vehicule/add-vehicule-view.php";
+include PHP_ROOT . "/views/vehicule/add-vehicule-view.php";

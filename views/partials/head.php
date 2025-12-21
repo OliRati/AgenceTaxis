@@ -11,6 +11,6 @@
 
 <body>
     <div class="wrapper">
-        <?php include PATH_PROJECT . "/views/partials/nav.php"; ?>
+        <?php include PHP_ROOT . "/views/partials/nav.php"; ?>
 
         <main>

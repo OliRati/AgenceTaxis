@@ -1,4 +1,5 @@
 <?php
+require '../.env.php';
 include '../fonctions.php';
 require '../connexiondb.php';
 
@@ -29,5 +30,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['envoyer'])) {
     $errors[] = "Vous devez sélectionner un conducteur et un vehicule";
 }
 
-include PATH_PROJECT . "/views/association/add-association-view.php";
+include PHP_ROOT . "/views/association/add-association-view.php";
 ?>

@@ -1,4 +1,5 @@
 <?php
+require '../.env.php';
 include '../fonctions.php';
 require '../connexiondb.php';
 
@@ -23,4 +24,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     redirect("/driver/list-driver.php");
 }
 
-include PATH_PROJECT . "/views/driver/driver-view.php";
+include PHP_ROOT . "/views/driver/driver-view.php";

@@ -1,4 +1,4 @@
-<?php include PATH_PROJECT . "/views/partials/head.php"; ?>
+<?php include PHP_ROOT . "/views/partials/head.php"; ?>
 
 <article>
     <h1>Ajouter une affectation Chauffeur - Vehicule</h1>
@@ -62,4 +62,4 @@
     });
 </script>
 
-<?php include PATH_PROJECT . "/views/partials/tail.php"; ?>
+<?php include PHP_ROOT . "/views/partials/tail.php"; ?>
