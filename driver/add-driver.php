@@ -16,5 +16,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['envoyer'])) {
     }
 }
 
-include PHP_ROOT . "/views/driver/add-driver-view.php";
+$nom = "";
+$prenom = "";
+
+$pageTitle = "Ajouter un conducteur";
+include PHP_ROOT . "/views/driver/driver-view.php";
 ?>

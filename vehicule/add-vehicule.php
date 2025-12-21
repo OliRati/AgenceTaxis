@@ -18,4 +18,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['envoyer'])) {
     }
 }
 
-include PHP_ROOT . "/views/vehicule/add-vehicule-view.php";
+$marque = "";
+$modele = "";
+$couleur = "";
+$immatriculation = "";
+
+$pageTitle = "Ajouter un vehicule";
+include PHP_ROOT . "/views/vehicule/vehicule-view.php";

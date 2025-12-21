@@ -9,15 +9,15 @@
 </style>
 
 <article>
-    <h1><?=  $pageTitle ?>Editer un conducteur</h1>
+    <h1><?= $pageTitle ?></h1>
     <form action="?id=<?= $idConducteur ?>" method="POST">
         <div class="flex">
             <label for="nom">Nom</label>
-            <input type="text" id="nom" name="nom" value="<?= $driver['nom'] ?>">
+            <input type="text" id="nom" name="nom" value="<?= $nom ?>">
         </div>
         <div class="flex">
             <label for="prenom">Prénom</label>
-            <input type="text" id="prenom" name="prenom" value="<?= $driver['prenom'] ?>">
+            <input type="text" id="prenom" name="prenom" value="<?= $prenom ?>">
         </div>
         <div class="flex">
             <button type="submit" name="envoyer">Envoyer</button>

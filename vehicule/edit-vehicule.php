@@ -9,8 +9,6 @@ if (!is_numeric($idVehicule)) {
     dd("Ce vehicule n'existe pas !!!");
 }
 
-$car = getVehicule($pdo, $idVehicule);
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['envoyer'])) {
         // traitement du formulaire d'ajout d'un vehicule
@@ -25,5 +23,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     redirect("/vehicule/list-vehicule.php");
 }
+
+$car = getVehicule($pdo, $idVehicule);
+$marque = $car['marque'];
+$modele = $car['modele'];
+$couleur = $car['couleur'];
+$immatriculation = $car['immatriculation'];
 
 include PHP_ROOT . "/views/vehicule/vehicule-view.php";

@@ -13,20 +13,19 @@
     <form action="?id=<?= $idVehicule ?>" method="POST">
         <div class="flex">
             <label for="marque">Marque</label>
-            <input type="text" id="marque" name="marque" value="<?= $car['marque'] ?>" placeholder="Marque">
+            <input type="text" id="marque" name="marque" value="<?= $marque ?>" required>
         </div>
         <div class="flex">
             <label for="modele">Modele</label>
-            <input type="text" id="modele" name="modele" value="<?= $car['modele'] ?>" placeholder="Marque">
+            <input type="text" id="modele" name="modele" value="<?= $modele ?>" required>
         </div>
         <div class="flex">
             <label for="couleur">Couleur</label>
-            <input type="text" id="couleur" name="couleur" value="<?= $car['couleur'] ?>" placeholder="Marque">
+            <input type="text" id="couleur" name="couleur" value="<?= $couleur ?>" required>
         </div>
         <div class="flex">
             <label for="immatriculation">Immatriculation</label>
-            <input type="text" id="immatriculation" name="immatriculation" value="<?= $car['immatriculation'] ?>"
-                placeholder="Marque">
+            <input type="text" id="immatriculation" name="immatriculation" value="<?= $immatriculation ?>" required>
         </div>
         <div class="flex">
             <button type="submit" name="envoyer">Envoyer</button>

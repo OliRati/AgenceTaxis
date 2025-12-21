@@ -24,4 +24,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     redirect("/driver/list-driver.php");
 }
 
+$nom = $driver['nom'];
+$prenom = $driver['prenom'];
+
+$pageTitle = "Modifier un conducteur";
 include PHP_ROOT . "/views/driver/driver-view.php";
