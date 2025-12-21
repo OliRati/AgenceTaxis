@@ -2,9 +2,6 @@
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
-define("PATH_PROJECT", $_SERVER['DOCUMENT_ROOT'] . "\devweb-php\AgenceTaxis");
-define("WEB_ROOT", "/devweb-php/AgenceTaxis");
-
 function dg($data)
 {
     echo '<pre style="background-color: black; color: white; padding: 1rem; margin: 1rem 0">';
