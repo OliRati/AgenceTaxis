@@ -37,9 +37,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['envoyer'])) {
         }
 
         $errors[] = "Impossible d'enregistrer l'opération";
+    } else {
+        $errors[] = "Vous devez sélectionner un conducteur et un vehicule";
     }
-
-    $errors[] = "Vous devez sélectionner un conducteur et un vehicule";
 }
 
 $pageTitle = 'Ajouter une affectation Chauffeur - Vehicule';

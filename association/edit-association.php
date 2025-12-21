@@ -17,6 +17,8 @@ $association = getAssociation($pdo, $idAssociation);
 $idVehicule = $association['id_vehicule'];
 $idConducteur = $association['id_conducteur'];
 
+$errors = [];
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['envoyer'])) {
         // traitement du formulaire d'edition d'une association Vehicule - Conducteur
@@ -24,10 +26,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $idConducteur = nettoyer($_POST['conducteur']);
         $idVehicule = nettoyer($_POST['vehicule']);
 
-        updateAssociation($pdo, $idAssociation, $idConducteur, $idVehicule);
-    }
+        $result = updateAssociation($pdo, $idAssociation, $idConducteur, $idVehicule);
+        if ($result) {
+            redirect("/association/list-association.php");
+        }
 
-    redirect("/association/list-association.php");
+        $errors[] = "Impossible de modifier ce conducteur";
+    }
 }
 
 $pageTitle = 'Editer un conducteur';

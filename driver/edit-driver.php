@@ -11,21 +11,34 @@ if (!is_numeric($idConducteur)) {
 
 $driver = getConducteur($pdo, $idConducteur);
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['envoyer'])) {
-        // traitement du formulaire d'ajout d'un vehicule
-
-        $nom = nettoyer($_POST['nom']);
-        $prenom = nettoyer($_POST['prenom']);
-
-        updateConducteur($pdo, $idConducteur, $nom, $prenom);
-    }
-
-    redirect("/driver/list-driver.php");
-}
-
 $nom = $driver['nom'];
 $prenom = $driver['prenom'];
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Validation du formulaire d'edition d'un conducteur
+
+    if (isset($_POST['nom']))
+        $nom = nettoyer($_POST['nom']);
+
+    if (empty($nom))
+        $errors[] = "Le nom est nécéssaire";
+
+    if (isset($_POST['prenom']))
+        $prenom = nettoyer($_POST['prenom']);
+    
+    if (empty($prenom))
+        $errors[] = "Le prénom est nécéssaire";
+
+    if (!empty($nom) && !empty($prenom)) {
+        $state = updateConducteur($pdo, $idConducteur, $nom, $prenom);
+
+        if ($state) {
+            redirect("/driver/list-driver.php");
+        }
+
+        $errors[] = "Impossible de modifier ce conducteur";
+    }
+}
 
 $pageTitle = "Modifier un conducteur";
 include PHP_ROOT . "/views/driver/driver-view.php";

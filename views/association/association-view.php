@@ -10,6 +10,15 @@
 
 <article>
     <h1><?= $pageTitle ?></h1>
+
+    <?php if (!empty($errors)) { ?>
+        <div class="error">
+            <?php foreach ($errors as $error) {
+                echo $error . "<br>";
+            } ?>
+        </div>
+    <?php } ?>
+
     <form action="?id=<?= $idAssociation ?>" id="associationForm" method="POST">
         <div class="flex">
             <label for="conducteur">Conducteur</label>
