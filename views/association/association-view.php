@@ -29,10 +29,10 @@
                 <?php } else { ?>
                     <option value="" disabled selected>Sélectionnez un conducteur</option>
                     <?php foreach ($conducteurs as $conducteur) { ?>
-                        <option value="<?= $conducteur['id_conducteur'] ?>" <?php
-                                                                            if (isset($idConducteur) && $conducteur['id_conducteur'] === $idConducteur)
-                                                                                echo "selected";
-                                                                            ?>>
+                        <option value="<?= $conducteur['id_conducteur'] ?>"
+                            <?php if (isset($idConducteur) && $conducteur['id_conducteur'] === $idConducteur)
+                                echo "selected";
+                            ?>>
                             <?= $conducteur['nom'] . ' ' . $conducteur['prenom'] ?>
                         </option>
                 <?php }
@@ -47,10 +47,10 @@
                 <?php } else { ?>
                     <option value="" disabled selected>Selectionnez un vehicule</option>
                     <?php foreach ($vehicules as $vehicule) { ?>
-                        <option value="<?= $vehicule['id_vehicule'] ?>" <?php
-                                                                        if (isset($idVehicule) && $vehicule['id_vehicule'] === $idVehicule)
-                                                                            echo "selected";
-                                                                        ?>>
+                        <option value="<?= $vehicule['id_vehicule'] ?>"
+                            <?php if (isset($idVehicule) && $vehicule['id_vehicule'] === $idVehicule)
+                                echo "selected";
+                            ?>>
                             <?= $vehicule['marque'] . ' ' . $vehicule['modele'] . ' ' . $vehicule['couleur'] ?>
                         </option>
                 <?php }
@@ -59,7 +59,7 @@
         </div>
         <div class="flex">
             <button type="submit" name="envoyer">Envoyer</button>
-            <button type="button" role="button"
+            <button type="button"
                 onclick="window.location.href='<?= WEB_ROOT . "/association/list-association.php" ?>';">Annuler</button>
         </div>
     </form>

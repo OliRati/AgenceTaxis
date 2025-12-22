@@ -26,10 +26,13 @@
                         <td><a href="<?= WEB_ROOT . "/association/edit-association.php" . "?id=" . $asso['id_association'] ?>"
                                 role="button" class="secondary">
                                 Editer <img src="<?= WEB_ROOT . "/assets/img/edit_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" ?>" alt="Edit icon"></a>
-                            <a href="<?= WEB_ROOT . "/association/del-association.php" . "?id=" . $asso['id_association'] ?>"
-                                role="button"
-                                onclick="return confirm('Etes vous certain de vouloir supprimer ce conducteur ?');">
-                                Supprimer <img src="<?= WEB_ROOT . "/assets/img/delete_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" ?>" alt="Edit icon"></a>
+                            <form action="<?= WEB_ROOT . "/association/del-association.php" ?>" method="post">
+                                <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']) ?>">
+                                <input type="hidden" name="id_association" value="<?= $asso['id_association'] ?>">
+                                <button type="submit" name="supprimer" onclick="return confirm('Etes vous certain de vouloir supprimer cette affcetation ?');">
+                                    Supprimer <img src="<?= WEB_ROOT . "/assets/img/delete_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" ?>" alt="Edit icon">
+                                </button>
+                            </form>
                         </td>
                     </tr>
                 <?php endforeach ?>

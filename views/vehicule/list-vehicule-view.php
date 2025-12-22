@@ -26,13 +26,17 @@
                         <td><?= $car['modele'] ?></td>
                         <td><?= $car['couleur'] ?></td>
                         <td><?= $car['immatriculation'] ?></td>
-                        <td><a href="<?= WEB_ROOT . "/vehicule/edit-vehicule.php" . "?id=" . $car['id_vehicule'] ?>"
+                        <td>
+                            <a href="<?= WEB_ROOT . "/vehicule/edit-vehicule.php" . "?id=" . $car['id_vehicule'] ?>"
                                 role="button" class="secondary">
                                 Editer <img src="<?= WEB_ROOT . "/assets/img/edit_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" ?>" alt="Edit icon"></a>
-                            <a href="<?= WEB_ROOT . "/vehicule/del-vehicule.php" . "?id=" . $car['id_vehicule'] ?>"
-                                role="button"
-                                onclick="return confirm('Etes vous certain de vouloir supprimer ce vehicule ?');">
-                                Supprimer <img src="<?= WEB_ROOT . "/assets/img/delete_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" ?>" alt="Edit icon"></a>
+                            <form action="<?= WEB_ROOT . "/vehicule/del-vehicule.php" ?>" method="post">
+                                <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']) ?>">
+                                <input type="hidden" name="id_vehicule" value="<?= $car['id_vehicule'] ?>">
+                                <button type="submit" name="supprimer"  onclick="return confirm('Etes vous certain de vouloir supprimer ce vehicule ?');">
+                                    Supprimer <img src="<?= WEB_ROOT . "/assets/img/delete_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" ?>" alt="Edit icon">
+                                </button>
+                            </form>
                             <?php if (!isset($car['id_conducteur'])) { ?>
                                 <a href="<?= WEB_ROOT . "/association/add-association.php" . "?car=" . $car['id_vehicule'] ?>"
                                     role="button">

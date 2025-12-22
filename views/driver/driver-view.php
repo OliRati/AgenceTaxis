@@ -31,7 +31,7 @@
         </div>
         <div class="flex">
             <button type="submit" name="envoyer">Envoyer</button>
-            <button type="button" role="button"
+            <button type="button"
                 onclick="window.location.href='<?= WEB_ROOT . "/driver/list-driver.php" ?>';">Annuler</button>
         </div>
     </form>

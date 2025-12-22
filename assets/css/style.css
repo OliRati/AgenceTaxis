@@ -9,8 +9,20 @@
 }
 
 button[type="submit"] {
-    padding: 0.1rem 0.5rem;
     width: fit-content;
+}
+
+table {
+    button[type="submit"] {
+        padding: 0.1rem 0.5rem;
+        width: fit-content;
+        margin: 0;
+    }
+
+    td:last-child {
+        display: flex;
+        gap: 0.5rem;
+    }
 }
 
 .flex {
