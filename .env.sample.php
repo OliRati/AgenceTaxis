@@ -4,6 +4,11 @@
 // and save it as .env.php
 
 /*
+ * Enable more debug outputs
+ */
+const ENABLE_DEBUG = 'on';
+
+/*
  * Path to the application from Web server root
  */
 const WEB_ROOT = '/devweb-php/AgenceTaxis';

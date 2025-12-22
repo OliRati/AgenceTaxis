@@ -1,6 +1,10 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
+
+if (ENABLE_DEBUG === 'on') {
+    // Enable more debbuging output
+    error_reporting(E_ALL);
+    ini_set('display_errors', '1');
+}
 
 function dg($data)
 {
@@ -218,7 +222,7 @@ function nettoyer($dataParam)
 
 function getNbLigneTable($pdo, $table)
 {
-    $sql = "SELECT COUNT(*) as nb FROM `".$table."`";
+    $sql = "SELECT COUNT(*) as nb FROM `" . $table . "`";
     $stmt = $pdo->prepare($sql);
     $result = $stmt->execute();
 
@@ -282,4 +286,3 @@ function redirect($url)
     header("Location: " . WEB_ROOT . $url);
     exit;
 }
-?>

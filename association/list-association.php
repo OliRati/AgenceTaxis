@@ -1,7 +1,5 @@
 <?php
-require '../.env.php';
-include '../fonctions.php';
-require '../connexiondb.php';
+require '../includes.php';
 
 $associationArray = listerAssociations($pdo);
 

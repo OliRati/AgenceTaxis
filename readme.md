@@ -62,17 +62,17 @@ AgenceTaxis/
 │   └── list-vehicule.php
 └── views/                            # HTML views
     ├── association/
+    │   └── association-view.php
     │   └── list-association-view.php
     ├── driver/
-    │   ├── add-driver-view.php
     │   ├── driver-view.php
     │   └── list-driver-view.php
-    ├── footer/
-    │   └── footer.php                # Common Footer
-    ├── nav/
-    │   └── nav.php                   # Common Navigation bar
+    ├── partials/
+    │   └── footer.php               # Common Footer
+    │   └── head.php                 # Common head of pages
+    │   └── nav.php                  # Common Navigation bar
+    │   └── tail.php                 # Common tail of pages
     └── vehicule/
-        ├── add-vehicule-view.php
         ├── list-vehicule-view.php
         └── vehicule-view.php
 ```

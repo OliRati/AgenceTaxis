@@ -1,7 +1,5 @@
 <?php
-require '../.env.php';
-include '../fonctions.php';
-require '../connexiondb.php';
+require '../includes.php';
 
 if (isset($_GET['car'])) {
     $tmp_idVehicule = nettoyer($_GET['car']);

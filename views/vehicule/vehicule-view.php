@@ -11,6 +11,7 @@
 <article>
     <h1><?=  $pageTitle ?></h1>
     <form action="?id=<?= $idVehicule ?>" method="POST">
+        <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']) ?>">
         <div class="flex">
             <label for="marque">Marque</label>
             <input type="text" id="marque" name="marque" value="<?= $marque ?>" required>
