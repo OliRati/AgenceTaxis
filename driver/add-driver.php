@@ -7,6 +7,10 @@ $prenom = "";
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['envoyer'])) {
     // Validation du formulaire d'ajout d'un conducteur
 
+    if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+        die('Token CSRF invalide');
+    }
+    
     if (isset($_POST['nom']))
         $nom = nettoyer($_POST['nom']);
     

@@ -21,6 +21,15 @@ $errors = [];
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['envoyer'])) {
     // traitement du formulaire d'edition d'une association Vehicule - Conducteur
 
+    // CSRF verification
+    if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+        die('Token CSRF invalide');
+    }
+
+    if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+        die('Token CSRF invalide');
+    }
+
     if (isset($_POST['conducteur']))
         $idConducteur = nettoyer($_POST['conducteur']);
 

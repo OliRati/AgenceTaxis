@@ -20,6 +20,7 @@
     <?php } ?>
 
     <form action="?id=<?= $idAssociation ?>" id="associationForm" method="POST">
+        <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']) ?>">
         <div class="flex">
             <label for="conducteur">Conducteur</label>
             <select id="conducteur" name="conducteur">
