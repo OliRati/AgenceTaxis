@@ -1,5 +1,4 @@
 <?php
-require '.env.php';
 require 'includes.php';
 
 include PHP_ROOT . "/views/partials/head.php";

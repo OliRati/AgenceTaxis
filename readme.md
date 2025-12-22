@@ -13,7 +13,7 @@ A simple PHP-based web application for managing a taxi agency's vehicles, driver
 ## Technologies Used
 
 - **Backend**: PHP 7+ with PDO for database interactions.
-- **Database**: MySQL (schema provided in `taxis.sql`).
+- **Database**: MySQL (schema provided in `database/taxis.sql`).
 - **Frontend**: HTML, CSS (Pico CSS framework), JavaScript for confirmations.
 - **Server**: Compatible with WAMP/XAMPP for local development.
 
@@ -26,9 +26,12 @@ A simple PHP-based web application for managing a taxi agency's vehicles, driver
    ```
 2. Import the database schema:
    - Open `phpMyAdmin` or any MySQL client.
-   - Import the `taxis.sql` file to create the necessary tables.
+   - Import the `database/taxis.sql` file to create the necessary tables.
 3. Configure the database connection:
-   - Edit `connexiondb.php` to set your database credentials.
+   - Copy `.env.sample.php` as `.env.php` then set your database credentials
+     and config.
+     Warning : This file may contain sensible datas and must be kept out of
+     reach of server and not published on github.
 4. Access the application:
    - Start WAMP/XAMPP and ensure the Apache and MySQL services are running.
    - Navigate to `http://localhost/AgenceTaxis` in your web browser.
@@ -39,8 +42,11 @@ A simple PHP-based web application for managing a taxi agency's vehicles, driver
 AgenceTaxis/
 ├── index.php                         # Main dashboard with statistics
 ├── connexiondb.php                   # Database connection
+├── .env.sample.php                   # Sample config file for project
 ├── fonctions.php                     # Utility functions and database operations
-├── taxis.sql                         # Database schema
+├── includes.php                      # Master include file
+├── database/
+│   └── taxis.sql                     # Database schema with sample records
 ├── assets/
 │   └── css/
 │       ├── pico.min.css              # Pico CSS framework
