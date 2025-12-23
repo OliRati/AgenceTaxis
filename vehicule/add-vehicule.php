@@ -1,6 +1,7 @@
 <?php
 require '../includes.php';
 
+$idVehicule = "";
 $marque = "";
 $modele = "";
 $couleur = "";

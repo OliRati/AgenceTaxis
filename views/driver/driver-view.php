@@ -19,7 +19,7 @@
         </div>
     <?php } ?>
 
-    <form action="?id=<?= $idConducteur ?>" method="POST">
+    <form action="<?= empty($idConducteur)?"":"?id=".$idConducteur ?>" method="POST">
         <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']) ?>">
         <div class="flex">
             <label for="nom">Nom</label>

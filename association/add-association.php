@@ -13,6 +13,7 @@ if (isset($_GET['driver'])) {
         $idConducteur = intval($tmp_idConducteur, 10);
 }
 
+$idAssociation = "";
 $conducteurs = listerConducteurs($pdo);
 $vehicules = listerVehicules($pdo);
 

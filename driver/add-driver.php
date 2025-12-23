@@ -1,6 +1,7 @@
 <?php
 require '../includes.php';
 
+$idConducteur = "";
 $nom = "";
 $prenom = "";
 
