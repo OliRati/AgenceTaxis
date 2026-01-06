@@ -1,7 +1,7 @@
 <?php
 
 if (ENABLE_DEBUG === 'on') {
-    // Enable more debbuging output
+    // Enable more debugging output
     error_reporting(E_ALL);
     ini_set('display_errors', '1');
 }
