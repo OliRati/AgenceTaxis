@@ -16,6 +16,7 @@ $immatriculation = $car['immatriculation'];
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['envoyer'])) {
     // traitement du formulaire de modification d'un vehicule
 
+    // CSRF verification
     if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
         die('Token CSRF invalide');
     }

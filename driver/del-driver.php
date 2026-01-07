@@ -5,6 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['supprimer'])) {
 
     // Traitement du formulaire de Suppression d'un vehicule
 
+    // CSRF verification
     if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
         die('Token CSRF invalide');
     }

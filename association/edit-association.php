@@ -21,6 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['envoyer'])) {
         // traitement du formulaire d'edition d'une association Vehicule - Conducteur
 
+        // CSRF verification
         if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
             die('Token CSRF invalide');
         }

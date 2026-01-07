@@ -27,10 +27,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['envoyer'])) {
         die('Token CSRF invalide');
     }
 
-    if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
-        die('Token CSRF invalide');
-    }
-
     if (isset($_POST['conducteur']))
         $idConducteur = nettoyer($_POST['conducteur']);
 

@@ -15,6 +15,7 @@ $prenom = $driver['prenom'];
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Validation du formulaire d'edition d'un conducteur
 
+    // CSRF verification
     if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
         die('Token CSRF invalide');
     }
