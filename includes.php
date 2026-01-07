@@ -7,10 +7,10 @@ if (empty($_SESSION['csrf_token'])) {
 }
 
 // Get project configuration file
-if (file_exists('.env.php'))
-    require '.env.php';
-elseif (file_exists('../.env.php'))
-    require '../.env.php';
+if (file_exists('env.php'))
+    require 'env.php';
+elseif (file_exists('../env.php'))
+    require '../env.php';
 
 require PHP_ROOT . '/fonctions.php';
 require PHP_ROOT . '/connexiondb.php';
