@@ -215,9 +215,9 @@ function supprimerAssociation($pdo, $id)
 
 function nettoyer($dataParam)
 {
-    $data = trim($dataParam);
-    $data = htmlspecialchars($data, ENT_QUOTES, 'UTF-8');
-    return $data;
+    $trimed_data = trim($dataParam);
+    $cleaned_data = htmlspecialchars($trimed_data, ENT_QUOTES, 'UTF-8');
+    return $cleaned_data;
 }
 
 function getNbLigneTable($pdo, $table)
