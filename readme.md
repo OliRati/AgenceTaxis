@@ -28,9 +28,11 @@ A simple PHP-based web application for managing a taxi agency's vehicles, driver
    - Open `phpMyAdmin` or any MySQL client.
    - Import the `database/taxis.sql` file to create the necessary tables.
 3. Configure the database connection:
-   - Copy `.env.sample.php` as `.env.php` then set your database credentials
-     and config.
-     Warning : This file may contain sensible datas and must be kept out of
+   - Copy `env.example.php` as `env.php` then set your database credentials
+     and config.  
+   - Do not remove it, it is used as an Anchor to find the root
+     of the project from any php module file that needs it as a dependency.
+   - Warning : This file may contain sensible datas and must be kept out of
      reach of server and not published on github.
 4. Access the application:
    - Start WAMP/XAMPP and ensure the Apache and MySQL services are running.
