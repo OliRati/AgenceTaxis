@@ -29,10 +29,10 @@ const DB_HOSTNAME = 'localhost';
 const DB_NAME = 'taxis';
 
 // Database user
-const DB_USER = 'user';
+const DB_USER = 'root';
 
 // Database password
-const DB_PASSWORD = 'password';
+const DB_PASSWORD = '';
 
 // Database charset to be used
 const DB_CHARSET = 'utf8mb4';
